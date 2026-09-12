@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff6d8">
+  <meta name="description" content="เซอร์ไพรส์เล็ก ๆ ในวันพิเศษของเธอ เค้กหนึ่งก้อน เทียนหนึ่งเล่ม และคำอธิษฐานที่อยากให้เป็นจริง">
+  <title>Happy Birthday! — วันนี้เป็นวันของเธอ</title>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <span class="wordmark">a little birthday magic <span aria-hidden="true">♥</span></span>
+    <button class="sound-button" id="sound-toggle" type="button" aria-label="เปิดเสียง" aria-pressed="false">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z" stroke-linejoin="round"/><path class="sound-waves" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" stroke-linecap="round"/><path class="sound-mute" d="m16 9 5 6m0-6-5 6" stroke-linecap="round"/></svg>
+      <span id="sound-label">เปิดเสียง</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="birthday" aria-labelledby="birthday-heading">
+      <div class="greeting">
+        <h1 id="birthday-heading">Happy Birthday!<svg class="heading-heart" viewBox="0 0 32 40" aria-hidden="true"><path d="M16 35C9 24 0 11 7 5c6-4 10 3 9 11C21 1 32 2 29 13c-2 7-7 14-13 22Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/></svg></h1>
+        <p class="subtitle"><span aria-hidden="true">♥</span> วันนี้เป็นวันของเธอ <span aria-hidden="true">♥</span></p>
+      </div>
+
+      <div class="cake-stage" id="cake-stage">
+        <div class="cake-float">
+          <div class="cake-tilt" id="cake-tilt">
+            <img class="cake-art" src="/assets/birthday-cake.png" width="1254" height="1254" alt="เค้กวานิลลา 3 มิติ แต่งครีมส้ม ดอกไม้ และเทียนหนึ่งเล่มบนจานสีพีช" fetchpriority="high" draggable="false">
+            <svg class="candle-flame" id="candle-flame" viewBox="0 0 30 48" aria-hidden="true"><path d="M16 1C20 15 30 20 27 34 25 44 18 48 12 46 1 43-2 32 3 23 7 16 12 10 16 1Z" fill="#ffad32"/><path d="M16 20C16 27 23 31 21 39 19 46 8 46 8 38c0-7 5-12 8-18Z" fill="#fff8ce"/></svg>
+            <span class="smoke" id="smoke" aria-hidden="true"></span>
+          </div>
+        </div>
+        <span class="flying-wish" id="flying-wish" aria-hidden="true">♡</span>
+      </div>
+
+      <div class="invitation" id="invitation">
+        <p class="prompt">หลับตา แล้วอธิษฐานสิ</p>
+        <button class="primary-button" id="open-wish" type="button">อธิษฐานแล้วเป่าเทียน</button>
+      </div>
+
+      <div class="celebration" id="celebration" hidden>
+        <h2 id="success-title" tabindex="-1">ขอให้ทุกคำอธิษฐานเป็นจริง ♡</h2>
+        <p class="birthday-message">ขอให้ปีนี้ใจดีกับเธอ มีรอยยิ้มเยอะ ๆ<br>และมีความสุขในแบบที่เธอชอบนะ</p>
+        <blockquote id="wish-result"></blockquote>
+        <button class="replay-button" id="replay" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10a9 9 0 1 1 1 7M3 4v6h6" stroke-linecap="round" stroke-linejoin="round"/></svg> จุดเทียนอีกครั้ง</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>made with a little love <span aria-hidden="true">♥</span></footer>
+  <dialog class="wish-dialog" id="wish-dialog" aria-labelledby="wish-heading" aria-describedby="wish-description">
+    <button class="close-button" id="close-wish" type="button" aria-label="ปิดหน้าคำอธิษฐาน"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke-linecap="round"/></svg></button>
+    <div class="wish-symbol" aria-hidden="true">✧</div>
+    <h2 id="wish-heading">ขอพรให้ตัวเองสักข้อ</h2>
+    <p id="wish-description">ไม่ต้องเป็นเรื่องใหญ่ก็ได้นะ<br>แค่เป็นสิ่งที่ทำให้เธอยิ้มได้ก็พอ</p>
+    <form id="wish-form">
+      <label for="wish-text">คำอธิษฐานของเธอ</label>
+      <textarea id="wish-text" name="wish" placeholder="ปีนี้ ฉันขอให้…" maxlength="280" rows="4" required aria-describedby="wish-error wish-privacy" autofocus></textarea>
+      <div class="field-meta"><span id="wish-error" role="alert"></span><span id="character-count">0 / 280</span></div>
+      <button class="primary-button submit-button" id="send-wish" type="submit">ส่งคำอธิษฐาน แล้วเป่าเทียน <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4 20-7ZM22 2 11 13" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <p class="privacy-note" id="wish-privacy">เป็นคำอธิษฐานส่วนตัว ไม่ส่งให้ผู้อื่นหรือเก็บบันทึก</p>
+    </form>
+  </dialog>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div class="sr-only" id="announcement" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">เปิด JavaScript เพื่อเขียนคำอธิษฐานและเล่นเซอร์ไพรส์วันเกิดนะ</p></noscript>
+</body>
+</html>
